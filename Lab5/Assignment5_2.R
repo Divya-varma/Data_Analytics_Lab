@@ -9,7 +9,4 @@ Q<-(normalize(c(2,5,3,7,8)))
 
 PQ<-rbind(P,Q)
 PQ
-
-dist(PQ, method = "manhattan") 
-library(lsa)
-cosine(PQ)
+dist(PQ)
