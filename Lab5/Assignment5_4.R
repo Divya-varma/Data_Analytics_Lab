@@ -14,17 +14,30 @@ plot(iris$Petal.Length, iris$Petal.Width, pch=21, bg=c("red","green3","blue")[un
 
 #(c) Compute the similarity measure between Iris-Setosa and Iris-Versicolor; and IrisVersicolor and Iris-Virginica; and Iris-Setosa and Iris-Virginica considering only two
 #features petal length and petal width
+
+
+
+irisVer <- subset(iris, Species == "versicolor")
+irisSet <- subset(iris, Species == "setosa")
+irisVir <- subset(iris, Species == "virginica")
+
+irisVerSet = rbind(irisVer$Petal.Length,irisSet$Petal.Length)
+dist(irisVerSet)
 library(lsa)
+cosine(PQ)
+
+irisVerVir = rbind(irisVer$Petal.Length,irisVir$Petal.Length)
+dist(irisVerVir)  
+
+irisSetVir = rbind(irisSet$Petal.Length,irisVir$Petal.Length)
+dist(irisSetVir)
 
 
-a <- c(23, 34, 44, 45, 42, 27, 33, 34)
-b <- c(17, 18, 22, 26, 26, 29, 31, 30)
-c <- c(34, 35, 35, 36, 51, 29, 30, 31)
+irisVerSet1 = rbind(irisVer$Petal.Width,irisSet$Petal.Width)
+dist(irisVerSet1)
 
-data <- cbind(a, b)
+irisVerVir1 = rbind(irisVer$Petal.Width,irisVir$Petal.Width)
+dist(irisVerVir1)  
 
-#calculate Cosine Similarity
-cosine(data)
-
-install.packages("coop")
-cosine(a, b, use = "everything", inverse = FALSE)
+irisSetVir1 = rbind(irisSet$Petal.Width,irisVir$Petal.Width)
+dist(irisSetVir1)
